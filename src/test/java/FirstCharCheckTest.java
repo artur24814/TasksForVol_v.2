@@ -31,7 +31,7 @@ public class FirstCharCheckTest {
     @Test
     void testShouldReturnIsOther (){
         assertEquals(
-            FirstCharCheck.IS_DIGIT,
+            FirstCharCheck.IS_OTHER,
             FirstCharCheck.repFirstChar("@ other Text ....")
         );
     }

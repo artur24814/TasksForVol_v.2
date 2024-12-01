@@ -8,11 +8,11 @@ public class FirstCharCheck {
 
     public static String repFirstChar(String text){
         char firstChar = text.charAt(0);
-        if (...) {
+        if (Character.isUpperCase(firstChar)) {
             return IS_UPPER;
-        } else if (...) {
+        } else if (Character.isLowerCase(firstChar)) {
             return IS_LOWER;
-        } else if (...) {
+        } else if (Character.isDigit(firstChar)) {
             return IS_DIGIT;
         } else {
             return IS_OTHER;
