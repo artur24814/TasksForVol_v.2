@@ -1,16 +1,21 @@
 package task5;
 
 public class FirstCharCheck {
+    public static String IS_UPPER = "upper";
+    public static String IS_LOWER = "lower";
+    public static String IS_DIGIT = "digit";
+    public static String IS_OTHER = "other";
+
     public static String repFirstChar(String text){
         char firstChar = text.charAt(0);
         if (...) {
-            return "upper";
+            return IS_UPPER;
         } else if (...) {
-            return "lower";
+            return IS_LOWER;
         } else if (...) {
-            return "digit";
+            return IS_DIGIT;
         } else {
-            return "other";
+            return IS_OTHER;
         }
     }
 }
