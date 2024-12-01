@@ -67,4 +67,27 @@ public class LargestNumberInTheFamilyTest {
             "Failed for number=" + input2
         );
     }
+
+    @Test
+    void testIsReturningValueIsCorrect () throws NotInZeroToTensOfThousandsRangeException {
+        LargestNumberInTheFamily largestNumberInTheFamily = new LargestNumberInTheFamily();
+
+        assertEquals(
+            751,
+            largestNumberInTheFamily.getResult(175),
+            "Failed for number=175"
+        );
+
+        assertEquals(
+            321,
+            largestNumberInTheFamily.getResult(213),
+            "Failed for number=321"
+        );
+
+        assertEquals(
+            553,
+            largestNumberInTheFamily.getResult(553),
+            "Failed for number=553"
+        );
+    }
 }
