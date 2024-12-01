@@ -1,12 +1,43 @@
 import org.junit.jupiter.api.Test;
 import task4.LargestNumberInTheFamily;
+import task4.NotInZeroToTensOfThousandsRangeException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LargestNumberInTheFamilyTest {
 
     @Test
-    void testIsReturningIntIsTheSameFamilyThenInput (){
+    void testValidInputRange() {
+        LargestNumberInTheFamily largestNumberInTheFamily = new LargestNumberInTheFamily();
+        assertDoesNotThrow(() -> largestNumberInTheFamily.getResult(0));
+        assertDoesNotThrow(() -> largestNumberInTheFamily.getResult(10_000));
+        assertDoesNotThrow(() -> largestNumberInTheFamily.getResult(5_000));
+    }
+
+    @Test
+    void testInvalidInputRange() {
+        LargestNumberInTheFamily largestNumberInTheFamily = new LargestNumberInTheFamily();
+        NotInZeroToTensOfThousandsRangeException notInZeroToTensOfThousandsRangeException1 = assertThrows(
+            NotInZeroToTensOfThousandsRangeException.class,
+            () -> largestNumberInTheFamily.getResult(-1),
+            "Expected exception for n=-1, but it didn't occur"
+        );
+        assertEquals(
+            "valueToCheck must be between 0 and 10_000 (inclusive)",
+            notInZeroToTensOfThousandsRangeException1.getMessage());
+
+        NotInZeroToTensOfThousandsRangeException notInZeroToTensOfThousandsRangeException2 = assertThrows(
+            NotInZeroToTensOfThousandsRangeException.class,
+            () -> largestNumberInTheFamily.getResult(100_000),
+            "Expected exception for n=100_000, but it didn't occur"
+        );
+        assertEquals(
+            "valueToCheck must be between 0 and 10_000 (inclusive)",
+            notInZeroToTensOfThousandsRangeException2.getMessage());
+    }
+
+    @Test
+    void testIsReturningIntIsTheSameFamilyThenInput () throws NotInZeroToTensOfThousandsRangeException {
         LargestNumberInTheFamily largestNumberInTheFamily = new LargestNumberInTheFamily();
 
         int input1 = 234;
